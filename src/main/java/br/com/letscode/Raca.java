@@ -1,4 +1,7 @@
 package br.com.letscode;
 
-public class Raca {
+public enum Raca {
+    HUMANO,
+    GREE,
+    RAKATA
 }
