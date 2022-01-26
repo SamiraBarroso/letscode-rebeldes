@@ -13,7 +13,7 @@ public class InteligenciaCentral {
     private List<Rebelde> rebeldes = new ArrayList<>();
 
     public boolean solicitarIngressoRebelde(){
-        int num = new Random().nextInt(10);
+        int num = new Random().nextInt(5);
         if (num % 2 == 0)
             return true;
         else
