@@ -1,0 +1,5 @@
+LISTA DE REBELDES:
+
+0 - Rebelde(nome=John, idade=28, raca=HUMANO)
+1 - Rebelde(nome=Anne, idade=29, raca=GREE)
+2 - Rebelde(nome=Marcus, idade=35, raca=RAKATA)
