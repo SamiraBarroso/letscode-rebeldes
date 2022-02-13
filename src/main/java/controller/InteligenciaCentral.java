@@ -38,7 +38,7 @@ public class InteligenciaCentral {
     }
 
     public void imprimirListaRebeldes() {
-        for (Rebelde rebelde : rebeldes){
+        for (Rebelde rebelde : this.rebeldes){
             System.out.println(" - " + rebelde.toString());
         }
     }

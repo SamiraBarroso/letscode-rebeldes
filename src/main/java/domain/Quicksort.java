@@ -18,12 +18,10 @@ public class Quicksort {
     private int particiona(LinkedList<Rebelde> rebeldes, int inicio, int fim, Ordem ordem) {
         int i = inicio - 1;
 
-        if(ordem.equals("NOME")){
+        if(ordem.equals(Ordem.NOME)){
             String pivo = rebeldes.get(fim).getNome();
             for(int j = inicio; j <= fim - 1; j++)
-            {
-                if(rebeldes.get(j).getNome().compareTo(pivo) <= 0)
-                {
+            {   if(rebeldes.get(j).getNome().compareTo(pivo) <= 0){
                     i++;
                     troca(rebeldes,i,j);
                 }
@@ -31,13 +29,10 @@ public class Quicksort {
             troca(rebeldes,i+1,fim);
             return (i+1);
         }
-        if(ordem.equals("IDADE")){
+        if(ordem.equals(Ordem.IDADE)){
             int pivo = rebeldes.get(fim).getIdade();
-
-            for(int j = inicio; j <= fim - 1; j++)
-            {
-                if(rebeldes.get(j).getIdade() <= pivo)
-                {
+            for(int j = inicio; j <= fim - 1; j++){
+                if(rebeldes.get(j).getIdade() <= pivo){
                     i++;
                     troca(rebeldes,i,j);
                 }
@@ -47,11 +42,8 @@ public class Quicksort {
         }
         else{
             Raca pivo = rebeldes.get(fim).getRaca();
-
-            for(int j = inicio; j <= fim - 1; j++)
-            {
-                if(rebeldes.get(j).getRaca().compareTo(pivo) <= 0)
-                {
+            for(int j = inicio; j <= fim - 1; j++){
+                if(rebeldes.get(j).getRaca().compareTo(pivo) <= 0){
                     i++;
                     troca(rebeldes,i,j);
                 }
