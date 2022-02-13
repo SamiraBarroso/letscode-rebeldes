@@ -1,5 +1,6 @@
-package br.com.letscode;
+package domain;
 
+import enums.Raca;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

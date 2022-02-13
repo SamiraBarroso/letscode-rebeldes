@@ -1,4 +1,4 @@
-package br.com.letscode;
+package enums;
 
 public enum Raca {
     HUMANO,

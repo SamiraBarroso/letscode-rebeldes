@@ -1,4 +1,9 @@
-package br.com.letscode;
+package view;
+
+import controller.InteligenciaCentral;
+import enums.Ordem;
+import enums.Raca;
+import domain.Rebelde;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
@@ -64,12 +69,27 @@ public class RebeldeView {
         }
     }
 
+    private void perguntaOrdemRebelde(){
+        System.out.println("Informe em que ordem os Rebeldes devem se organizar na lista");
+        System.out.println("Ordem da lista: ");
+        for (Ordem ordem : Ordem.values()) {
+            System.out.printf("%d - %s\n", ordem.ordinal(), ordem.name());
+        }
+        int ordemIndex = scanner.nextInt();
+        if (ordemIndex < 0 || ordemIndex >= Ordem.values().length) {
+            System.out.println("Escolha de ordem inválida!");
+            perguntaOrdemRebelde();
+        }
+        else{
+            this.inteligenciaCentral.ordenaLista(Ordem.values()[ordemIndex]);
+        }
+    }
+
     private void solicitaIngresso(){
         boolean solicitacao = this.inteligenciaCentral.solicitarIngressoRebelde();
         if(solicitacao){
             System.out.println("Acesso Permitido! ");
             this.inteligenciaCentral.cadastrarRebelde(rebelde);
-            geraRelatorio();
             System.out.println(rebelde.getNome() + " Cadastrado. ");
         }
         else {
@@ -77,10 +97,15 @@ public class RebeldeView {
             System.out.println(rebelde.getNome() + " Recusado. ");
         }
     }
+
+    private void imprimirLista(){
+        this.inteligenciaCentral.imprimirListaRebeldes();
+    }
     public void showMenu(){
         System.out.println("----------- Cadastro de Rebeldes-----------");
         System.out.println();
         System.out.println("1 - Solicitar Ingresso na Aliança");
+        System.out.println("2 - Imprimir lista da Aliança e gerar relatório");
         System.out.println("0 - Sair");
 
         String opcao = scanner.nextLine();
@@ -89,6 +114,13 @@ public class RebeldeView {
 
                 dadosRebelde();
                 solicitaIngresso();
+                scanner.nextLine();
+                showMenu();
+                break;
+            case "2":
+                perguntaOrdemRebelde();
+                imprimirLista();
+                geraRelatorio();
                 scanner.nextLine();
                 showMenu();
                 break;
